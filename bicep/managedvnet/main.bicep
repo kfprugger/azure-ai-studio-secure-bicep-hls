@@ -56,7 +56,7 @@ param systemDatastoresAuthMode string = 'identity'
 param projectName string = ''
 
 @description('Specifies the friendly name for the Azure AI Studio Hub Project workspace.')
-param projectFriendlyName string = 'AI Studio Hub Project'
+param projectFriendlyName string = 'AI Studio Private HLS Project'
 
 @description('Specifies the public network access for the Azure AI Project workspace.')
 @allowed([

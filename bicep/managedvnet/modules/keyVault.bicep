@@ -38,7 +38,7 @@ param enablePurgeProtection bool = true
 param enableRbacAuthorization bool = true
 
 @description('Specifies whether the soft deelete is enabled for this Azure Key Vault resource.')
-param enableSoftDelete bool = true
+param enableSoftDelete bool = false
 
 @description('Specifies the soft delete retention in days.')
 param softDeleteRetentionInDays int = 7
@@ -113,13 +113,13 @@ resource keyVaultAdministratorRoleDefinition 'Microsoft.Authorization/roleDefini
   scope: subscription()
 }
 
-// This role assignment grants the user the required permissions to perform all data plane operations Key Vault and all objects in it, including certificates, keys, and secrets.
+// This role assignment grants the group the required permissions to perform all data plane operations Key Vault and all objects in it, including certificates, keys, and secrets.
 resource keyVaultAdministratorUserRoleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = if (!empty(userObjectId)) {
   name: guid(keyVault.id, keyVaultAdministratorRoleDefinition.id, userObjectId)
   scope: keyVault
   properties: {
     roleDefinitionId: keyVaultAdministratorRoleDefinition.id
-    principalType: 'User'
+    principalType: 'Group'
     principalId: userObjectId
   }
 }

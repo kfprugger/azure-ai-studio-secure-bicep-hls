@@ -7,9 +7,9 @@ source ./functions.sh
 declare -A variables=(
   [template]="main.bicep"
   [parameters]="main.bicepparam"
-  [resourceGroupName]="ai-vnet-rg"
-  [virtualNetworkResourceGroupName]="ai-vnet-rg"
-  [location]="westeurope"
+  [resourceGroupName]="rg-pvai"
+  [virtualNetworkResourceGroupName]="rg-pvai-mgmt"
+  [location]="eastus2"
   [validateTemplate]=0
   [useWhatIf]=0
 )
@@ -19,7 +19,7 @@ parse_args variables $@
 
 # Validates if the resource group exists in the subscription, if not creates it
 echo "Checking if [$resourceGroupName] resource group exists in the [$subscriptionName] subscription..."
-az group show --name $resourceGroupName &>/dev/null
+az group show --name $resourceGroupNwame &>/dev/null
 
 if [[ $? != 0 ]]; then
   echo "No [$resourceGroupName] resource group exists in the [$subscriptionName] subscription"
@@ -104,8 +104,8 @@ fi
 echo "Deploying [$template] Bicep template..."
 deploymentOutputs=$(
   az deployment group create \
+    --verbose \
     --resource-group $resourceGroupName \
-    --only-show-errors \
     --template-file $template \
     --parameters $parameters \
     --parameters \

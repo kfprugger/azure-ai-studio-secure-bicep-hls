@@ -131,6 +131,7 @@ resource project 'Microsoft.MachineLearningServices/workspaces@2024-04-01-previe
     publicNetworkAccess: publicNetworkAccess
     hubResourceId: hubId
     systemDatastoresAuthMode: 'identity'
+    softDeleteRetentionInDays: 0
   }
 }
 
@@ -145,7 +146,7 @@ resource azureMLDataScientistUserRoleAssignment 'Microsoft.Authorization/roleAss
   scope: project
   properties: {
     roleDefinitionId: azureMLDataScientistRole.id
-    principalType: 'User'
+    principalType: 'Group'
     principalId: userObjectId
   }
 }

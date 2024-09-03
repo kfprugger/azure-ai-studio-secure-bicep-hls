@@ -1,14 +1,14 @@
 using './main.bicep'
 
-param prefix = 'bami'
-param suffix = 'test'
+param prefix = 'pvai'
+param suffix = 'dev2'
 //param userObjectId = '0c5267b2-01f3-4a59-970e-0d9218d5412e'
-param userObjectId = '0498653d-ca59-494a-97d3-c8e971732461'
+param userObjectId = '0ae1c4af-4dae-4e4a-b54e-26b76432a4df' // could also be an Entra ID Group
 param keyVaultEnablePurgeProtection = false
 param acrEnabled = true
 param vmAdminUsername = 'azadmin'
 //param vmAdminPasswordOrKey = getSecret('1a45a694-ae23-4650-9774-89a571c462f6', 'BaboKeyVaultResourceGroup', 'BaboKeyVault', 'vmAdminPasswordOrKey')
-param vmAdminPasswordOrKey = 'Trustno1234!'
+param vmAdminPasswordOrKey = 'HLSS3cr3tP@ssS3cr3t!'
 param openAiDeployments = [
   {
     model: {

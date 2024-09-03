@@ -182,7 +182,7 @@ resource azureMLDataScientistUserRoleAssignment 'Microsoft.Authorization/roleAss
   scope: hub
   properties: {
     roleDefinitionId: azureMLDataScientistRole.id
-    principalType: 'User'
+    principalType: 'Group'
     principalId: userObjectId
   }
 }

@@ -108,7 +108,7 @@ resource cognitiveServicesContributorRoleAssignment 'Microsoft.Authorization/rol
   scope: aiServices
   properties: {
     roleDefinitionId: cognitiveServicesContributorRoleDefinition.id
-    principalType: 'User'
+    principalType: 'Group'
     principalId: userObjectId
   }
 }
@@ -135,7 +135,7 @@ resource cognitiveServicesUserUserRoleAssignment 'Microsoft.Authorization/roleAs
   scope: aiServices
   properties: {
     roleDefinitionId: cognitiveServicesUserRoleDefinition.id
-    principalType: 'User'
+    principalType: 'Group'
     principalId: userObjectId
   }
 }
